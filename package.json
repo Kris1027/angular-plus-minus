@@ -9,8 +9,10 @@
     "test": "ng test",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "serve:ssr:plusminus": "node dist/plusminus/server/server.mjs",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "typecheck": "tsc -b --noEmit",
+    "validate": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm build",
+    "serve:ssr:plusminus": "node dist/plusminus/server/server.mjs"
   },
   "private": true,
   "packageManager": "pnpm@10.33.0",
