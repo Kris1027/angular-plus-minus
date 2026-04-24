@@ -91,7 +91,15 @@ export class DecisionStore {
     }));
   }
 
-  reorderItem({ kind, fromIndex, toIndex }: { kind: Kind; fromIndex: number; toIndex: number }): void {
+  reorderItem({
+    kind,
+    fromIndex,
+    toIndex,
+  }: {
+    kind: Kind;
+    fromIndex: number;
+    toIndex: number;
+  }): void {
     if (fromIndex === toIndex) return;
     const key = listKey(kind);
     this.state.update((s) => {

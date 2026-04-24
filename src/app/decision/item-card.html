@@ -34,10 +34,7 @@
       (blur)="commitEdit()"
     />
   } @else {
-    <span
-      class="flex-1 cursor-text text-sm text-slate-800"
-      (dblclick)="startEdit()"
-    >
+    <span class="flex-1 cursor-text text-sm text-slate-800" (dblclick)="startEdit()">
       {{ item().text }}
     </span>
   }
@@ -51,7 +48,9 @@
         class="rounded-md p-1 text-slate-500 hover:bg-slate-100 hover:text-slate-700"
       >
         <svg viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
-          <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+          <path
+            d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"
+          />
         </svg>
       </button>
     }
@@ -62,7 +61,11 @@
       class="rounded-md p-1 text-slate-500 hover:bg-rose-50 hover:text-rose-600"
     >
       <svg viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
-        <path fill-rule="evenodd" d="M8 3a1 1 0 011-1h2a1 1 0 011 1v1h4a1 1 0 110 2h-.333l-.845 11.013A2 2 0 0112.83 19H7.17a2 2 0 01-1.993-1.987L4.332 6H4a1 1 0 010-2h4V3zm2 5a1 1 0 10-2 0v7a1 1 0 102 0V8zm3 0a1 1 0 10-2 0v7a1 1 0 102 0V8z" clip-rule="evenodd" />
+        <path
+          fill-rule="evenodd"
+          d="M8 3a1 1 0 011-1h2a1 1 0 011 1v1h4a1 1 0 110 2h-.333l-.845 11.013A2 2 0 0112.83 19H7.17a2 2 0 01-1.993-1.987L4.332 6H4a1 1 0 010-2h4V3zm2 5a1 1 0 10-2 0v7a1 1 0 102 0V8zm3 0a1 1 0 10-2 0v7a1 1 0 102 0V8z"
+          clip-rule="evenodd"
+        />
       </svg>
     </button>
   </div>

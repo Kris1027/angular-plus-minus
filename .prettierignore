@@ -1,0 +1,16 @@
+# Build output
+dist
+.angular
+coverage
+
+# Dependencies
+node_modules
+
+# Lockfiles (managed by package manager)
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Generated
+*.min.js
+*.min.css

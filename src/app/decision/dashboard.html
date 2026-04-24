@@ -37,15 +37,13 @@
 
   <app-item-form [kind]="kind()" />
 
-  <div
-    cdkDropList
-    (cdkDropListDropped)="handleDrop($event)"
-    class="flex flex-col gap-2"
-  >
+  <div cdkDropList (cdkDropListDropped)="handleDrop($event)" class="flex flex-col gap-2">
     @for (item of items(); track item.id) {
       <app-item-card [item]="item" [kind]="kind()" />
     } @empty {
-      <p class="rounded-lg border border-dashed border-slate-300 bg-white/50 px-3 py-6 text-center text-sm text-slate-500">
+      <p
+        class="rounded-lg border border-dashed border-slate-300 bg-white/50 px-3 py-6 text-center text-sm text-slate-500"
+      >
         Nothing here yet. Add your first {{ isPlus ? 'plus' : 'minus' }} above.
       </p>
     }
