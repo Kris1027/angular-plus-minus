@@ -4,22 +4,30 @@
   class="flex flex-col gap-4 rounded-2xl border p-5 shadow-sm backdrop-blur"
   [class.border-jade-200]="isPlus"
   [class.bg-jade-50/70]="isPlus"
+  [class.dark:border-jade-800]="isPlus"
+  [class.dark:bg-jade-950/40]="isPlus"
   [class.border-clay-200]="!isPlus"
   [class.bg-clay-50/70]="!isPlus"
+  [class.dark:border-clay-800]="!isPlus"
+  [class.dark:bg-clay-950/40]="!isPlus"
 >
   <header class="flex items-center justify-between">
     <div class="flex items-center gap-3">
       <span
         class="flex h-9 w-9 items-center justify-center rounded-full text-lg font-bold text-white"
         [class.bg-jade-500]="isPlus"
+        [class.dark:bg-jade-600]="isPlus"
         [class.bg-clay-500]="!isPlus"
+        [class.dark:bg-clay-600]="!isPlus"
       >
         {{ symbol }}
       </span>
       <h2
         class="text-xl font-semibold tracking-tight"
         [class.text-jade-800]="isPlus"
+        [class.dark:text-jade-200]="isPlus"
         [class.text-clay-800]="!isPlus"
+        [class.dark:text-clay-200]="!isPlus"
       >
         {{ title }}
       </h2>
@@ -28,8 +36,12 @@
       class="rounded-full px-2.5 py-0.5 text-sm font-medium"
       [class.bg-jade-100]="isPlus"
       [class.text-jade-800]="isPlus"
+      [class.dark:bg-jade-900]="isPlus"
+      [class.dark:text-jade-200]="isPlus"
       [class.bg-clay-100]="!isPlus"
       [class.text-clay-800]="!isPlus"
+      [class.dark:bg-clay-900]="!isPlus"
+      [class.dark:text-clay-200]="!isPlus"
     >
       {{ count() }}
     </span>
@@ -42,7 +54,7 @@
       <app-item-card [item]="item" [kind]="kind()" />
     } @empty {
       <p
-        class="rounded-lg border border-dashed border-stone-300 bg-white/50 px-3 py-6 text-center text-sm text-stone-500"
+        class="rounded-lg border border-dashed border-stone-300 bg-white/50 px-3 py-6 text-center text-sm text-stone-500 dark:border-stone-700 dark:bg-stone-900/40 dark:text-stone-400"
       >
         Nothing here yet. Add your first {{ isPlus ? 'plus' : 'minus' }} above.
       </p>

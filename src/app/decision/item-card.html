@@ -5,14 +5,18 @@
   class="group flex items-center gap-2 rounded-xl border px-3 py-2 shadow-sm transition hover:shadow-md"
   [class.border-jade-300]="isPlus"
   [class.bg-jade-100]="isPlus"
+  [class.dark:border-jade-800]="isPlus"
+  [class.dark:bg-jade-900/50]="isPlus"
   [class.border-clay-300]="!isPlus"
   [class.bg-clay-100]="!isPlus"
+  [class.dark:border-clay-800]="!isPlus"
+  [class.dark:bg-clay-900/50]="!isPlus"
 >
   <button
     type="button"
     cdkDragHandle
     aria-label="Reorder"
-    class="flex h-7 w-5 shrink-0 cursor-grab items-center justify-center text-stone-400 hover:text-stone-600 active:cursor-grabbing"
+    class="flex h-7 w-5 shrink-0 cursor-grab items-center justify-center text-stone-400 hover:text-stone-600 active:cursor-grabbing dark:text-stone-500 dark:hover:text-stone-300"
   >
     <svg viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
       <circle cx="7" cy="5" r="1.4" />
@@ -28,7 +32,7 @@
     <input
       #editInput
       type="text"
-      class="flex-1 rounded-md border border-stone-300 bg-white px-2 py-1 text-sm outline-none focus:border-stone-500"
+      class="flex-1 rounded-md border border-stone-300 bg-white px-2 py-1 text-sm text-stone-900 outline-none focus:border-stone-500 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-100 dark:focus:border-stone-500"
       [ngModel]="draft()"
       (ngModelChange)="draft.set($event)"
       (keydown.enter)="commitEdit()"
@@ -36,7 +40,10 @@
       (blur)="commitEdit()"
     />
   } @else {
-    <span class="flex-1 cursor-text text-sm text-stone-800" (dblclick)="startEdit()">
+    <span
+      class="flex-1 cursor-text text-sm text-stone-800 dark:text-stone-200"
+      (dblclick)="startEdit()"
+    >
       {{ item().text }}
     </span>
   }
@@ -47,7 +54,7 @@
         type="button"
         (click)="startEdit()"
         aria-label="Edit"
-        class="rounded-md p-1 text-stone-500 hover:bg-stone-100 hover:text-stone-700"
+        class="rounded-md p-1 text-stone-500 hover:bg-stone-100 hover:text-stone-700 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-stone-200"
       >
         <svg viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
           <path
@@ -60,7 +67,7 @@
       type="button"
       (click)="handleDelete()"
       aria-label="Delete"
-      class="hover:bg-clay-50 hover:text-clay-600 rounded-md p-1 text-stone-500"
+      class="hover:bg-clay-50 hover:text-clay-600 dark:hover:bg-clay-900/60 dark:hover:text-clay-300 rounded-md p-1 text-stone-500 dark:text-stone-400"
     >
       <svg viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
         <path

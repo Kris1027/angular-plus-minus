@@ -10,11 +10,12 @@ import { FormsModule } from '@angular/forms';
 import { DecisionStore } from './decision/decision-store';
 import { DashboardComponent } from './decision/dashboard';
 import { SummaryComponent } from './decision/summary';
+import { ThemeToggleComponent } from './theme/theme-toggle';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [FormsModule, DashboardComponent, SummaryComponent],
+  imports: [FormsModule, DashboardComponent, SummaryComponent, ThemeToggleComponent],
   templateUrl: './app.html',
   styleUrl: './app.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

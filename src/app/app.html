@@ -1,32 +1,45 @@
 <div
-  class="from-jade-50/60 to-clay-50/70 min-h-screen bg-gradient-to-br via-stone-50 text-stone-900"
+  class="from-jade-50/60 to-clay-50/70 dark:from-jade-950/40 dark:to-clay-950/40 min-h-screen bg-gradient-to-br via-stone-50 text-stone-900 transition-colors dark:via-stone-950 dark:text-stone-100"
 >
   <div class="mx-auto flex min-h-screen max-w-5xl flex-col gap-6 px-4 py-6 sm:px-6 sm:py-10">
     <header
-      class="flex flex-row items-end justify-between gap-4 rounded-2xl border border-stone-200 bg-white/80 p-5 shadow-sm backdrop-blur"
+      class="flex flex-col gap-3 rounded-2xl border border-stone-200 bg-white/80 p-5 shadow-sm backdrop-blur dark:border-stone-800 dark:bg-stone-900/70"
     >
-      <div class="flex min-w-0 flex-1 flex-col gap-1">
-        <span class="text-xs font-semibold tracking-widest text-stone-500 uppercase">
+      <div class="flex items-center justify-between gap-2">
+        <span
+          class="text-xs font-semibold tracking-widest text-stone-500 uppercase dark:text-stone-400"
+        >
           Plus / Minus
         </span>
-        <textarea
-          rows="1"
-          placeholder="What are you deciding about?"
-          [ngModel]="store.topic()"
-          (ngModelChange)="handleTopicChange($event)"
-          (keydown.enter)="handleTopicEnter($event)"
-          name="topic"
-          class="field-sizing-content w-full resize-none rounded-lg border border-transparent bg-transparent px-2 py-3 text-3xl leading-tight font-semibold tracking-tight text-stone-900 outline-none placeholder:text-stone-400 focus:border-stone-300 focus:bg-white sm:text-4xl"
-        ></textarea>
+        <div class="flex items-center gap-2">
+          <button
+            type="button"
+            (click)="handleReset()"
+            [disabled]="!canReset()"
+            aria-label="Reset topic and items"
+            title="Reset"
+            class="hover:border-clay-200 hover:bg-clay-50 hover:text-clay-700 dark:hover:border-clay-700 dark:hover:bg-clay-950/60 dark:hover:text-clay-300 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-stone-200 bg-white text-stone-600 shadow-sm transition disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-stone-200 disabled:hover:bg-white disabled:hover:text-stone-600 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-300 dark:disabled:hover:border-stone-700 dark:disabled:hover:bg-stone-800 dark:disabled:hover:text-stone-300"
+          >
+            <svg viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+              <path
+                fill-rule="evenodd"
+                d="M15.312 11.424a5.5 5.5 0 01-9.201 2.466l-.312-.311h2.433a.75.75 0 000-1.5H3.989a.75.75 0 00-.75.75v4.242a.75.75 0 001.5 0v-2.43l.31.31a7 7 0 0011.712-3.138.75.75 0 00-1.449-.39zm1.23-3.723a.75.75 0 00.219-.53V2.929a.75.75 0 00-1.5 0V5.36l-.31-.31A7 7 0 003.239 8.188a.75.75 0 101.448.389A5.5 5.5 0 0113.89 6.11l.311.31h-2.432a.75.75 0 000 1.5h4.243a.75.75 0 00.53-.219z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+          <app-theme-toggle />
+        </div>
       </div>
-      <button
-        type="button"
-        (click)="handleReset()"
-        [disabled]="!canReset()"
-        class="hover:border-clay-200 hover:bg-clay-50 hover:text-clay-700 shrink-0 rounded-lg border border-stone-200 bg-white px-5 py-3 text-sm leading-[37.5px] font-medium text-stone-700 shadow-sm transition disabled:cursor-not-allowed disabled:border-stone-200 disabled:bg-white disabled:text-stone-400 disabled:shadow-none disabled:hover:border-stone-200 disabled:hover:bg-white disabled:hover:text-stone-400 sm:leading-[45px]"
-      >
-        Reset
-      </button>
+      <textarea
+        rows="1"
+        placeholder="What are you deciding about?"
+        [ngModel]="store.topic()"
+        (ngModelChange)="handleTopicChange($event)"
+        (keydown.enter)="handleTopicEnter($event)"
+        name="topic"
+        class="field-sizing-content w-full resize-none rounded-lg border border-transparent bg-transparent px-2 py-3 text-3xl leading-tight font-semibold tracking-tight text-stone-900 outline-none placeholder:text-stone-400 focus:border-stone-300 focus:bg-white sm:text-4xl dark:text-stone-100 dark:placeholder:text-stone-500 dark:focus:border-stone-700 dark:focus:bg-stone-950"
+      ></textarea>
     </header>
 
     <main class="grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -42,12 +55,12 @@
 
 <dialog
   #resetDialog
-  class="m-auto w-[calc(100%-2rem)] max-w-md rounded-2xl border border-stone-200 bg-white p-0 shadow-2xl backdrop:bg-stone-900/50 backdrop:backdrop-blur-sm"
+  class="m-auto w-[calc(100%-2rem)] max-w-md rounded-2xl border border-stone-200 bg-white p-0 shadow-2xl backdrop:bg-stone-900/50 backdrop:backdrop-blur-sm dark:border-stone-800 dark:bg-stone-900"
 >
   <div class="p-6">
     <div class="flex items-start gap-4">
       <div
-        class="bg-clay-100 text-clay-600 flex h-10 w-10 shrink-0 items-center justify-center rounded-full"
+        class="bg-clay-100 text-clay-600 dark:bg-clay-900/50 dark:text-clay-300 flex h-10 w-10 shrink-0 items-center justify-center rounded-full"
       >
         <svg viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5" aria-hidden="true">
           <path
@@ -58,8 +71,8 @@
         </svg>
       </div>
       <div class="flex flex-col gap-1">
-        <h2 class="text-xl font-semibold text-stone-900">Reset everything?</h2>
-        <p class="text-sm text-stone-600">
+        <h2 class="text-xl font-semibold text-stone-900 dark:text-stone-100">Reset everything?</h2>
+        <p class="text-sm text-stone-600 dark:text-stone-400">
           This will clear the topic and all pluses and minuses. This action cannot be undone.
         </p>
       </div>
@@ -69,14 +82,14 @@
       <button
         type="submit"
         value="cancel"
-        class="rounded-lg border border-stone-200 bg-white px-4 py-2 text-sm font-medium text-stone-700 transition hover:bg-stone-50"
+        class="rounded-lg border border-stone-200 bg-white px-4 py-2 text-sm font-medium text-stone-700 transition hover:bg-stone-50 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-200 dark:hover:bg-stone-700"
       >
         Cancel
       </button>
       <button
         type="button"
         (click)="confirmReset()"
-        class="bg-clay-500 hover:bg-clay-600 rounded-lg px-4 py-2 text-sm font-medium text-white shadow-sm transition"
+        class="bg-clay-500 hover:bg-clay-600 dark:bg-clay-600 dark:hover:bg-clay-500 rounded-lg px-4 py-2 text-sm font-medium text-white shadow-sm transition"
       >
         Reset
       </button>
