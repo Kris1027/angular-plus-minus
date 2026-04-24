@@ -24,11 +24,16 @@ export class App {
   private readonly resetDialog = viewChild<ElementRef<HTMLDialogElement>>('resetDialog');
 
   protected readonly canReset = computed(
-    () => this.store.plusCount() + this.store.minusCount() > 0,
+    () => this.store.topic().length > 0 || this.store.plusCount() + this.store.minusCount() > 0,
   );
 
   protected handleTopicChange(value: string): void {
     this.store.setTopic(value);
+  }
+
+  protected handleTopicEnter(event: Event): void {
+    event.preventDefault();
+    (event.target as HTMLTextAreaElement).blur();
   }
 
   protected handleReset(): void {
