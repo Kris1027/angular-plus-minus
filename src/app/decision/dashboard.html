@@ -51,7 +51,7 @@
 
   <div cdkDropList (cdkDropListDropped)="handleDrop($event)" class="flex flex-col gap-2">
     @for (item of items(); track item.id) {
-      <app-item-card [item]="item" [kind]="kind()" />
+      <app-item-card cdkDrag [item]="item" [kind]="kind()" />
     } @empty {
       <p
         class="rounded-lg border border-dashed border-stone-300 bg-white/50 px-3 py-6 text-center text-sm text-stone-500 dark:border-stone-700 dark:bg-stone-900/40 dark:text-stone-400"

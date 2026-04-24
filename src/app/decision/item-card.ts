@@ -7,7 +7,7 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
-import { CdkDrag, CdkDragHandle } from '@angular/cdk/drag-drop';
+import { CdkDragHandle } from '@angular/cdk/drag-drop';
 import { FormsModule } from '@angular/forms';
 import { DecisionStore } from './decision-store';
 import type { DecisionItem, Kind } from './decision.types';
@@ -15,7 +15,7 @@ import type { DecisionItem, Kind } from './decision.types';
 @Component({
   selector: 'app-item-card',
   standalone: true,
-  imports: [CdkDrag, CdkDragHandle, FormsModule],
+  imports: [CdkDragHandle, FormsModule],
   templateUrl: './item-card.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
-import { CdkDragDrop, CdkDropList } from '@angular/cdk/drag-drop';
+import { CdkDrag, CdkDragDrop, CdkDropList } from '@angular/cdk/drag-drop';
 import { DecisionStore } from './decision-store';
 import type { DecisionItem, Kind } from './decision.types';
 import { ItemCardComponent } from './item-card';
@@ -8,7 +8,7 @@ import { ItemFormComponent } from './item-form';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CdkDropList, ItemCardComponent, ItemFormComponent],
+  imports: [CdkDropList, CdkDrag, ItemCardComponent, ItemFormComponent],
   templateUrl: './dashboard.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
