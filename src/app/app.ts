@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, inject, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DecisionStore } from './decision/decision-store';
 import { DashboardComponent } from './decision/dashboard';
@@ -14,6 +14,7 @@ import { SummaryComponent } from './decision/summary';
 })
 export class App {
   protected readonly store = inject(DecisionStore);
+  private readonly resetDialog = viewChild<ElementRef<HTMLDialogElement>>('resetDialog');
 
   protected handleTopicChange(value: string): void {
     this.store.setTopic(value);
@@ -25,7 +26,11 @@ export class App {
       this.store.pluses().length > 0 ||
       this.store.minuses().length > 0;
     if (!hasData) return;
-    if (typeof window !== 'undefined' && !window.confirm('Reset topic and all items?')) return;
+    this.resetDialog()?.nativeElement.showModal();
+  }
+
+  protected confirmReset(): void {
     this.store.reset();
+    this.resetDialog()?.nativeElement.close();
   }
 }

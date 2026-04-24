@@ -35,3 +35,47 @@
     </footer>
   </div>
 </div>
+
+<dialog
+  #resetDialog
+  class="m-auto w-[calc(100%-2rem)] max-w-md rounded-2xl border border-slate-200 bg-white p-0 shadow-2xl backdrop:bg-slate-900/50 backdrop:backdrop-blur-sm"
+>
+  <div class="p-6">
+    <div class="flex items-start gap-4">
+      <div
+        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-rose-100 text-rose-600"
+      >
+        <svg viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+          <path
+            fill-rule="evenodd"
+            d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 6a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 6zm0 9a1 1 0 100-2 1 1 0 000 2z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <div class="flex flex-col gap-1">
+        <h2 class="text-lg font-semibold text-slate-900">Reset everything?</h2>
+        <p class="text-sm text-slate-600">
+          This will clear the topic and all pluses and minuses. This action cannot be undone.
+        </p>
+      </div>
+    </div>
+
+    <form method="dialog" class="mt-6 flex justify-end gap-2">
+      <button
+        type="submit"
+        value="cancel"
+        class="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+      >
+        Cancel
+      </button>
+      <button
+        type="button"
+        (click)="confirmReset()"
+        class="rounded-lg bg-rose-500 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-rose-600"
+      >
+        Reset
+      </button>
+    </form>
+  </div>
+</dialog>
