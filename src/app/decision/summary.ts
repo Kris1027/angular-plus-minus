@@ -3,7 +3,7 @@ import { DecisionStore } from './decision-store';
 
 type Badge = {
   label: string;
-  tone: 'emerald' | 'rose' | 'slate' | 'amber';
+  tone: 'jade' | 'clay' | 'stone' | 'tie';
 };
 
 @Component({
@@ -23,14 +23,14 @@ export class SummaryComponent {
   protected readonly badge = computed<Badge>(() => {
     switch (this.store.verdict()) {
       case 'plus':
-        return { label: 'Pluses win — lean toward yes', tone: 'emerald' };
+        return { label: 'Pluses win — lean toward yes', tone: 'jade' };
       case 'minus':
-        return { label: 'Minuses win — think twice', tone: 'rose' };
+        return { label: 'Minuses win — think twice', tone: 'clay' };
       case 'tie':
-        return { label: 'Tied — keep weighing', tone: 'amber' };
+        return { label: 'Tied — keep weighing', tone: 'tie' };
       case 'empty':
       default:
-        return { label: 'Add some items to see a verdict', tone: 'slate' };
+        return { label: 'Add some items to see a verdict', tone: 'stone' };
     }
   });
 }

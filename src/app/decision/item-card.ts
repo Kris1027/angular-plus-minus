@@ -29,10 +29,6 @@ export class ItemCardComponent {
   protected readonly editing = signal(false);
   protected readonly draft = signal('');
 
-  protected get accent(): string {
-    return this.kind() === 'plus' ? 'emerald' : 'rose';
-  }
-
   protected startEdit(): void {
     this.draft.set(this.item().text);
     this.editing.set(true);

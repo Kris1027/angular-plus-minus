@@ -1,29 +1,43 @@
 @let b = badge();
 
-<section class="rounded-2xl border border-slate-200 bg-white/80 p-6 shadow-sm backdrop-blur">
+<section
+  class="rounded-2xl border p-6 shadow-sm backdrop-blur transition-colors"
+  [class.border-jade-300]="b.tone === 'jade'"
+  [class.bg-jade-100]="b.tone === 'jade'"
+  [class.border-clay-300]="b.tone === 'clay'"
+  [class.bg-clay-100]="b.tone === 'clay'"
+  [class.border-stone-400]="b.tone === 'tie'"
+  [class.bg-stone-200]="b.tone === 'tie'"
+  [class.border-stone-200]="b.tone === 'stone'"
+  [class.bg-white/80]="b.tone === 'stone'"
+>
   <div class="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
     <div class="flex items-center gap-6">
       <div class="flex flex-col items-center">
-        <span class="text-xs font-medium tracking-wider text-emerald-600 uppercase">Pluses</span>
-        <span class="text-5xl font-bold text-emerald-600 tabular-nums">{{ plusCount() }}</span>
+        <span class="text-jade-600 text-xs font-medium tracking-wider uppercase">Pluses</span>
+        <span class="text-jade-600 text-5xl font-bold tabular-nums">{{ plusCount() }}</span>
       </div>
-      <span class="text-2xl text-slate-300 italic">vs</span>
+      <span class="text-2xl text-stone-300 italic">vs</span>
       <div class="flex flex-col items-center">
-        <span class="text-xs font-medium tracking-wider text-rose-600 uppercase">Minuses</span>
-        <span class="text-5xl font-bold text-rose-600 tabular-nums">{{ minusCount() }}</span>
+        <span class="text-clay-600 text-xs font-medium tracking-wider uppercase">Minuses</span>
+        <span class="text-clay-600 text-5xl font-bold tabular-nums">{{ minusCount() }}</span>
       </div>
     </div>
 
     <div
-      class="rounded-full px-4 py-2 text-sm font-semibold"
-      [class.bg-emerald-100]="b.tone === 'emerald'"
-      [class.text-emerald-800]="b.tone === 'emerald'"
-      [class.bg-rose-100]="b.tone === 'rose'"
-      [class.text-rose-800]="b.tone === 'rose'"
-      [class.bg-amber-100]="b.tone === 'amber'"
-      [class.text-amber-800]="b.tone === 'amber'"
-      [class.bg-slate-100]="b.tone === 'slate'"
-      [class.text-slate-700]="b.tone === 'slate'"
+      class="rounded-full border px-4 py-2 text-sm font-semibold"
+      [class.border-jade-300]="b.tone === 'jade'"
+      [class.bg-jade-100]="b.tone === 'jade'"
+      [class.text-jade-800]="b.tone === 'jade'"
+      [class.border-clay-300]="b.tone === 'clay'"
+      [class.bg-clay-100]="b.tone === 'clay'"
+      [class.text-clay-800]="b.tone === 'clay'"
+      [class.border-stone-400]="b.tone === 'tie'"
+      [class.bg-stone-200]="b.tone === 'tie'"
+      [class.text-stone-800]="b.tone === 'tie'"
+      [class.border-stone-200]="b.tone === 'stone'"
+      [class.bg-stone-100]="b.tone === 'stone'"
+      [class.text-stone-700]="b.tone === 'stone'"
     >
       {{ b.label }}
       @if (diff() !== 0) {

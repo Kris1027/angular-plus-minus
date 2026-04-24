@@ -7,18 +7,18 @@
     [ngModel]="draft()"
     (ngModelChange)="draft.set($event)"
     name="draft"
-    class="flex-1 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm shadow-sm transition outline-none focus:border-slate-400 focus:ring-2"
-    [class.focus:ring-emerald-200]="isPlus"
-    [class.focus:ring-rose-200]="!isPlus"
+    class="flex-1 rounded-lg border border-stone-200 bg-white px-3 py-2 text-sm shadow-sm transition outline-none focus:border-stone-400 focus:ring-2"
+    [class.focus:ring-jade-200]="isPlus"
+    [class.focus:ring-clay-200]="!isPlus"
   />
   <button
     type="submit"
     [disabled]="!draft().trim()"
     class="shrink-0 rounded-lg px-4 py-2 text-sm font-medium text-white shadow-sm transition disabled:cursor-not-allowed disabled:opacity-50"
-    [class.bg-emerald-500]="isPlus"
-    [class.hover:bg-emerald-600]="isPlus"
-    [class.bg-rose-500]="!isPlus"
-    [class.hover:bg-rose-600]="!isPlus"
+    [class.bg-jade-500]="isPlus"
+    [class.hover:bg-jade-600]="isPlus"
+    [class.bg-clay-500]="!isPlus"
+    [class.hover:bg-clay-600]="!isPlus"
   >
     Add
   </button>
