@@ -1,0 +1,34 @@
+@let b = badge();
+
+<section class="rounded-2xl border border-slate-200 bg-white/80 p-6 shadow-sm backdrop-blur">
+  <div class="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
+    <div class="flex items-center gap-6">
+      <div class="flex flex-col items-center">
+        <span class="text-xs font-medium uppercase tracking-wider text-emerald-600">Pluses</span>
+        <span class="text-4xl font-bold text-emerald-600 tabular-nums">{{ plusCount() }}</span>
+      </div>
+      <span class="text-2xl text-slate-300">vs</span>
+      <div class="flex flex-col items-center">
+        <span class="text-xs font-medium uppercase tracking-wider text-rose-600">Minuses</span>
+        <span class="text-4xl font-bold text-rose-600 tabular-nums">{{ minusCount() }}</span>
+      </div>
+    </div>
+
+    <div
+      class="rounded-full px-4 py-2 text-sm font-semibold"
+      [class.bg-emerald-100]="b.tone === 'emerald'"
+      [class.text-emerald-800]="b.tone === 'emerald'"
+      [class.bg-rose-100]="b.tone === 'rose'"
+      [class.text-rose-800]="b.tone === 'rose'"
+      [class.bg-amber-100]="b.tone === 'amber'"
+      [class.text-amber-800]="b.tone === 'amber'"
+      [class.bg-slate-100]="b.tone === 'slate'"
+      [class.text-slate-700]="b.tone === 'slate'"
+    >
+      {{ b.label }}
+      @if (diff() !== 0) {
+        <span class="ml-1 opacity-70">({{ diff() > 0 ? '+' : '' }}{{ diff() }})</span>
+      }
+    </div>
+  </div>
+</section>

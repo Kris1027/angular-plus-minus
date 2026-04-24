@@ -1,0 +1,53 @@
+@let isPlus = kind() === 'plus';
+
+<section
+  class="flex flex-col gap-4 rounded-2xl border p-5 shadow-sm backdrop-blur"
+  [class.border-emerald-200]="isPlus"
+  [class.bg-emerald-50/70]="isPlus"
+  [class.border-rose-200]="!isPlus"
+  [class.bg-rose-50/70]="!isPlus"
+>
+  <header class="flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <span
+        class="flex h-9 w-9 items-center justify-center rounded-full text-lg font-bold text-white"
+        [class.bg-emerald-500]="isPlus"
+        [class.bg-rose-500]="!isPlus"
+      >
+        {{ symbol }}
+      </span>
+      <h2
+        class="text-lg font-semibold"
+        [class.text-emerald-800]="isPlus"
+        [class.text-rose-800]="!isPlus"
+      >
+        {{ title }}
+      </h2>
+    </div>
+    <span
+      class="rounded-full px-2.5 py-0.5 text-sm font-medium"
+      [class.bg-emerald-100]="isPlus"
+      [class.text-emerald-800]="isPlus"
+      [class.bg-rose-100]="!isPlus"
+      [class.text-rose-800]="!isPlus"
+    >
+      {{ count() }}
+    </span>
+  </header>
+
+  <app-item-form [kind]="kind()" />
+
+  <div
+    cdkDropList
+    (cdkDropListDropped)="handleDrop($event)"
+    class="flex flex-col gap-2"
+  >
+    @for (item of items(); track item.id) {
+      <app-item-card [item]="item" [kind]="kind()" />
+    } @empty {
+      <p class="rounded-lg border border-dashed border-slate-300 bg-white/50 px-3 py-6 text-center text-sm text-slate-500">
+        Nothing here yet. Add your first {{ isPlus ? 'plus' : 'minus' }} above.
+      </p>
+    }
+  </div>
+</section>
